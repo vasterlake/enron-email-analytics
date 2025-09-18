@@ -44,4 +44,18 @@ This project solves those pain points and gives you a clean SQLite database for 
 ---
 
 ## Repository Layout
+enron-email-analytics/ ├─ README.md ├─ LICENSE ├─ .gitignore ├─ requirements.txt ├─ etl/ │ ├─ init.py │ ├─ etl.py # robust ETL (uses CSV column 2 as message) │ └─ config.py # CSV path, header flag, chunk size, DB path ├─ sql/ │ ├─ schema.sql │ ├─ sanity_checks.sql │ └─ views.sql # creates emails_flat view ├─ analysis/ │ └─ analysis_starter.py # daily trend, top senders, keyword hits ├─ data/ │ └─ raw/ # put your CSV here (ignored by git) ├─ db/ │ └─ enron.db # generated SQLite DB (ignored by git) └─ .github/ └─ workflows/ci.yml # simple CI smoke check 
+---
 
+## Quickstart
+
+### 1) Python environment
+
+```bash
+python -m venv .venv
+# Windows PowerShell:
+. .venv/Scripts/Activate.ps1
+# macOS/Linux:
+source .venv/bin/activate
+
+pip install -r requirements.txt
